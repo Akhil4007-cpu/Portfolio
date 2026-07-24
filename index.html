@@ -428,12 +428,13 @@
             agentic: 'Agentic AI',
             data: 'Data Analytics',
             ml: 'ML Deployment',
+            fullstack: 'Full Stack',
           }),
           []
         );
 
         const tags = useMemo(() => {
-          return ['all', 'agentic', 'data', 'ml'];
+          return ['all', 'agentic', 'data', 'ml', 'fullstack'];
         }, [projects]);
 
         const filtered = useMemo(() => {
@@ -650,6 +651,53 @@
               featured: false,
               live: '',
               repo: 'https://github.com/Akhil4007-cpu',
+            },
+            {
+              name: 'Video Content Moderation (Instagram-like)',
+              points: [
+                'AI/ML pipeline to detect unsafe or policy-violating video content using computer vision techniques.',
+                'Designed for moderation workflows with clear labels and review support.',
+              ],
+              stack: ['Python', 'OpenCV', 'Deep Learning', 'Model Serving'],
+              tags: ['ml'],
+              featured: false,
+              live: '',
+              repo: '',
+            },
+            {
+              name: 'Full Stack Task Manager',
+              points: [
+                'A responsive task management app with authentication, CRUD, and clean UX.',
+                'Built to demonstrate real-world API + frontend integration.',
+              ],
+              stack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
+              tags: ['fullstack'],
+              featured: false,
+              live: '',
+              repo: '',
+            },
+            {
+              name: 'E-Commerce Mini Platform',
+              points: [
+                'Product catalog, cart, and order flow with a focus on performance and maintainability.',
+                'Clean component structure and API design.',
+              ],
+              stack: ['React', 'REST APIs', 'Database'],
+              tags: ['fullstack'],
+              featured: false,
+              live: '',
+              repo: '',
+            },
+            {
+              name: 'ML Model Training Notebook Suite',
+              points: [
+                'A reusable set of notebooks and utilities for data cleaning, feature engineering, training, and evaluation (classification/regression).',
+              ],
+              stack: ['Python', 'Pandas', 'NumPy', 'scikit-learn'],
+              tags: ['ml'],
+              featured: false,
+              live: '',
+              repo: '',
             },
           ],
           []
