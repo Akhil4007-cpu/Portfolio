@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Akhil Ananthula — Full Stack Developer & AI/ML | Portfolio" />
+    <meta name="description" content="Akhil Ananthula — AI/ML & Data Science | Portfolio" />
     <meta name="theme-color" content="#0b1220" />
     <meta property="og:title" content="Akhil Ananthula — Portfolio" />
-    <meta property="og:description" content="Full Stack Developer & AI/ML | B.Tech student | Hyderabad" />
+    <meta property="og:description" content="AI/ML & Data Science Enthusiast | B.Tech CSE | Gachibowli, Hyderabad" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
     <title>Akhil Ananthula — Portfolio</title>
@@ -152,6 +152,8 @@
             return html`<svg ${common} viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`;
           case 'mail':
             return html`<svg ${common} viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>`;
+          case 'briefcase':
+            return html`<svg ${common} viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`;
           default:
             return null;
         }
@@ -200,6 +202,7 @@
         const links = [
           { label: 'Home', href: '#home' },
           { label: 'About', href: '#about' },
+          { label: 'Experience', href: '#experience' },
           { label: 'Projects', href: '#projects' },
           { label: 'Contact', href: '#contact' },
         ];
@@ -246,13 +249,13 @@
                   <div className="reveal">
                     <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/60 px-3 py-1 text-xs font-medium text-slate-700 dark:border-slate-800 dark:bg-slate-950/40 dark:text-slate-200">
                       <span className="inline-block h-2 w-2 rounded-full bg-emerald-500"></span>
-                      Open to internships & projects
+                      Open to AI/ML & Data Science internships
                     </div>
                     <h1 className="mt-5 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
-                      Full Stack Developer<br className="hidden sm:block" /> & AI/ML Builder.
+                      AI/ML & Data Science<br className="hidden sm:block" /> Enthusiast.
                     </h1>
                     <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-700 sm:text-lg dark:text-slate-200">
-                      I’m <span className="font-semibold text-slate-900 dark:text-white">${profile.name}</span>, a B.Tech student based in ${profile.location}. I build clean, fast web apps and practical machine learning solutions.
+                      I’m <span className="font-semibold text-slate-900 dark:text-white">${profile.name}</span>, a final-year B.Tech CSE (Data Science & ML) student based in ${profile.location}. I build practical machine learning systems and agentic AI applications — from LLM pipelines to production-grade ML deployments.
                     </p>
 
                     <div className="mt-6 flex flex-wrap items-center gap-3">
@@ -282,7 +285,7 @@
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">Current focus</p>
-                            <p className="mt-2 text-lg font-bold text-slate-900 dark:text-white">Full Stack + AI/ML</p>
+                            <p className="mt-2 text-lg font-bold text-slate-900 dark:text-white">Agentic AI + ML</p>
                           </div>
                           <div className="animate-floaty grid h-12 w-12 place-items-center rounded-2xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">
                             <span className="text-lg font-black">⚡</span>
@@ -326,12 +329,56 @@
               <div>
                 <div className="rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-soft dark:border-slate-800 dark:bg-slate-950/40">
                   <p className="text-sm font-semibold text-slate-900 dark:text-white">Skills</p>
-                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Full stack fundamentals + AI/ML tooling for building real products.</p>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">Core AI/ML, agentic AI, and deployment tooling for building real, production-adjacent systems.</p>
                   <div className="mt-5 flex flex-wrap gap-2">
                     ${skills.map((s) => html`<${Badge} key=${s}>${s}</${Badge}>`)}
                   </div>
                 </div>
               </div>
+            </div>
+          </${Section}>
+        `;
+      }
+
+      function ExperienceCard(props) {
+        const { exp } = props;
+        return html`
+          <article className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-6 shadow-soft dark:border-slate-800 dark:bg-slate-950/40">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+              <div className="flex items-start gap-3">
+                <div className="mt-1 grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-slate-900 text-white dark:bg-white dark:text-slate-900">
+                  <${Icon} name="briefcase" className="h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">${exp.role}</h3>
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-300">${exp.company}</p>
+                </div>
+              </div>
+              <span className="shrink-0 rounded-full border border-slate-200 bg-white/70 px-3 py-1 text-xs font-semibold text-slate-700 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-200">${exp.period}</span>
+            </div>
+            <ul className="mt-4 space-y-2 pl-1">
+              ${exp.points.map((pt, idx) => html`
+                <li key=${idx} className="flex gap-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500"></span>
+                  <span>${pt}</span>
+                </li>
+              `)}
+            </ul>
+            <div className="mt-4 flex flex-wrap gap-2">
+              ${exp.stack.map((t) => html`<${Badge} key=${t}>${t}</${Badge}>`)}
+            </div>
+          </article>
+        `;
+      }
+
+      function Experience(props) {
+        const { experiences } = props;
+        return html`
+          <${Section} id="experience">
+            <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">Experience</h2>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-700 dark:text-slate-200">Industry experience building production-adjacent AI/ML systems.</p>
+            <div className="mt-8 grid gap-6">
+              ${experiences.map((e) => html`<div key=${e.company} className="reveal"><${ExperienceCard} exp=${e} /></div>`)}
             </div>
           </${Section}>
         `;
@@ -346,7 +393,14 @@
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-900 dark:text-white">${project.name}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">${project.description}</p>
+                  <ul className="mt-2 space-y-1.5">
+                    ${project.points.map((pt, idx) => html`
+                      <li key=${idx} className="flex gap-2 text-sm leading-relaxed text-slate-700 dark:text-slate-200">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400 dark:bg-slate-500"></span>
+                        <span>${pt}</span>
+                      </li>
+                    `)}
+                  </ul>
                 </div>
                 ${project.featured ? html`<span className="shrink-0 rounded-full bg-slate-900 px-3 py-1 text-xs font-semibold text-white dark:bg-white dark:text-slate-900">Featured</span>` : null}
               </div>
@@ -371,14 +425,15 @@
         const tagLabels = useMemo(
           () => ({
             all: 'All',
-            fullstack: 'Full Stack',
-            ml: 'ML',
+            agentic: 'Agentic AI',
+            data: 'Data Analytics',
+            ml: 'ML Deployment',
           }),
           []
         );
 
         const tags = useMemo(() => {
-          return ['all', 'fullstack', 'ml'];
+          return ['all', 'agentic', 'data', 'ml'];
         }, [projects]);
 
         const filtered = useMemo(() => {
@@ -391,7 +446,7 @@
             <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">Projects</h2>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-700 dark:text-slate-200">A selection of full stack and AI/ML work—built to be reliable, maintainable, and user-friendly.</p>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-700 dark:text-slate-200">Agentic AI, data analytics, and end-to-end ML deployment work.</p>
               </div>
               <div className="flex flex-wrap gap-2">
                 ${tags.map((t) => html`
@@ -444,7 +499,7 @@
             <div>
               <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">Contact</h2>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-700 dark:text-slate-200">
-                Want to collaborate on a full stack project or an AI/ML idea? Send a message and I’ll respond as soon as possible.
+                Looking for an AI/ML or Data Science internship, ideally on-site near Gachibowli. Reach out and I’ll respond as soon as possible.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <${Button} href=${'mailto:' + email} variant="primary">
@@ -492,16 +547,16 @@
         const profile = useMemo(
           () => ({
             name: 'Akhil Ananthula',
-            role: 'Full Stack Developer • AI/ML',
-            location: 'Hyderabad (Gachibowli)',
+            role: 'AI/ML & Data Science Enthusiast',
+            location: 'Gachibowli, Hyderabad',
             email: 'akhilkumar4788@gmail.com',
             github: 'https://github.com/Akhil4007-cpu',
             linkedin: 'https://www.linkedin.com/in/akhila77',
-            highlights: ['B.Tech student', 'Full Stack', 'AI/ML', 'Python'],
+            highlights: ['B.Tech CSE (DS & ML)', 'GPA 8.5', 'Agentic AI', 'Python'],
             metrics: [
-              { label: 'Focus', value: 'Web + ML' },
-              { label: 'Stack', value: 'React / Node / Python' },
-              { label: 'Location', value: 'Hyderabad' },
+              { label: 'Focus', value: 'AI/ML & Data Science' },
+              { label: 'Stack', value: 'Python / LangChain / SQL' },
+              { label: 'GPA', value: '8.5' },
             ],
           }),
           []
@@ -509,35 +564,51 @@
 
         const skills = useMemo(
           () => [
-            'JavaScript',
-            'TypeScript',
-            'React',
-            'Node.js',
-            'Express',
-            'REST APIs',
-            'MongoDB',
-            'PostgreSQL',
-            'SQL',
-            'Authentication (JWT)',
-            'Git & GitHub',
-            'Docker (basics)',
             'Python',
+            'SQL',
+            'Data Analytics',
+            'Neural Networks',
             'Machine Learning',
             'Deep Learning',
-            'Computer Vision',
-            'NumPy',
-            'Pandas',
-            'scikit-learn',
-            'TensorFlow / PyTorch',
+            'LLM Pipelines',
+            'Agentic AI',
+            'LangChain',
+            'Retrieval-Augmented Generation (RAG)',
+            'Vector Databases (Pinecone)',
+            'Tool-Calling Agents',
+            'Prompt Engineering',
+            'Flask',
+            'AWS',
+            'CI/CD',
+            'Model Deployment',
+            'Git & GitHub',
+            'Linux',
           ],
           []
         );
 
         const aboutParagraphs = useMemo(
           () => [
-            "I’m a B.Tech student and a builder who enjoys shipping end-to-end products—from clean UI to scalable APIs.",
-            "My interests span Full Stack Development and AI/ML, especially practical applications like moderation, personalization, and automation.",
-            "I value simple architecture, strong fundamentals, and performance-focused interfaces.",
+            "I’m a final-year B.Tech CSE student specializing in Data Science & Machine Learning (Minors in Mathematics and Statistics) at CR Rao AIMSCS, Hyderabad, graduating January 2027 with a GPA of 8.5.",
+            "I bring industry experience from Rayv Technologies, where I built Python-based LLM pipelines and deep learning image classifiers for automated content moderation.",
+            "My project work spans agentic AI systems (LangChain, RAG, Pinecone), data analytics pipelines (Python + SQL), and end-to-end ML deployment (Flask, AWS, CI/CD) — and I'm actively seeking an AI/ML, Data Science, or Agentic AI Engineering internship.",
+          ],
+          []
+        );
+
+        const experiences = useMemo(
+          () => [
+            {
+              role: 'Machine Learning Intern',
+              company: 'Rayv Technologies',
+              period: 'Jul 2025 – Mar 2026',
+              points: [
+                'Developed a Python-based backend for automated video/content moderation, integrating the BLIP vision-language model to generate image and video captions for downstream content classification.',
+                'Built and tested classification workflows combining BLIP-generated captions with deep learning image classifiers to identify and flag content, improving moderation efficiency.',
+                'Deployed the classification pipeline and collaborated with the engineering team to refine model-driven filtering logic in a production-adjacent environment.',
+              ],
+              stack: ['Python', 'BLIP', 'Deep Learning', 'Content Moderation'],
+            },
           ],
           []
         );
@@ -545,44 +616,40 @@
         const projects = useMemo(
           () => [
             {
-              name: 'Video Content Moderation (Instagram-like)',
-              description:
-                'AI/ML pipeline to detect unsafe or policy-violating video content using computer vision techniques. Designed for moderation workflows with clear labels and review support.',
-              stack: ['Python', 'OpenCV', 'Deep Learning', 'Model Serving'],
-              tags: ['ml', 'python'],
+              name: 'Agentic RAG System',
+              points: [
+                'Built an agentic AI system combining a LangChain-based tool-calling agent with a Pinecone vector database, enabling autonomous decisions on when to retrieve from a document knowledge base versus perform a live web search via Tavily.',
+                'Implemented a Retrieval-Augmented Generation (RAG) pipeline with document chunking, embeddings, and semantic search to ground LLM responses in retrieved evidence and reduce hallucinations.',
+              ],
+              stack: ['LangChain', 'Pinecone', 'RAG', 'Tavily'],
+              tags: ['agentic'],
               featured: true,
               live: '',
-              repo: '',
+              repo: 'https://github.com/Akhil4007-cpu',
             },
             {
-              name: 'Full Stack Task Manager',
-              description:
-                'A responsive task management app with authentication, CRUD, and clean UX. Built to demonstrate real-world API + frontend integration.',
-              stack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT'],
-              tags: ['fullstack', 'web'],
+              name: 'Retail Data Analytics: Python + SQL Integration',
+              points: [
+                'Built an end-to-end retail analytics pipeline: extracted data via the Kaggle API, cleaned and transformed it with Python and Pandas, and loaded it into a SQL database for querying.',
+                'Wrote SQL queries to identify top-selling products, segment customers, and surface peak sales periods, translating findings into actionable inventory and marketing insights.',
+              ],
+              stack: ['Python', 'Pandas', 'SQL', 'Kaggle API'],
+              tags: ['data'],
               featured: true,
               live: '',
-              repo: '',
+              repo: 'https://github.com/Akhil4007-cpu',
             },
             {
-              name: 'E-Commerce Mini Platform',
-              description:
-                'Product catalog, cart, and order flow with a focus on performance and maintainability. Clean component structure and API design.',
-              stack: ['React', 'REST APIs', 'Database'],
-              tags: ['fullstack', 'web'],
+              name: 'End-to-End ML Project: Student Performance Predictor',
+              points: [
+                'Built and deployed a machine learning pipeline predicting student exam performance, with modular components for data ingestion, transformation, and model training.',
+                'Packaged the model behind a Flask web application and deployed it to AWS with a CI/CD pipeline, following production-grade logging and exception-handling practices.',
+              ],
+              stack: ['Flask', 'AWS', 'CI/CD', 'scikit-learn'],
+              tags: ['ml'],
               featured: false,
               live: '',
-              repo: '',
-            },
-            {
-              name: 'ML Model Training Notebook Suite',
-              description:
-                'A reusable set of notebooks and utilities for data cleaning, feature engineering, training, and evaluation (classification/regression).',
-              stack: ['Python', 'Pandas', 'NumPy', 'scikit-learn'],
-              tags: ['ml', 'python'],
-              featured: false,
-              live: '',
-              repo: '',
+              repo: 'https://github.com/Akhil4007-cpu',
             },
           ],
           []
@@ -594,6 +661,7 @@
             <main>
               <${Hero} profile=${profile} />
               <${About} skills=${skills} paragraphs=${aboutParagraphs} />
+              <${Experience} experiences=${experiences} />
               <${Projects} projects=${projects} />
               <${Contact} email=${profile.email} github=${profile.github} linkedin=${profile.linkedin} />
             </main>
